@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHOUHAN Bakery | Semliya, Ratlam</title>
+
+<style>
+:root{
+    --black:#0d0d0d;
+    --black2:#171717;
+    --gold:#d4af37;
+    --cream:#fff8e7;
+    --text:#f5f5f5;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, sans-serif;
+    background:var(--black);
+    color:var(--text);
+}
+
+header{
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:1000;
+    background:rgba(13,13,13,.95);
+    border-bottom:1px solid rgba(212,175,55,.4);
+}
+
+nav{
+    max-width:1200px;
+    margin:auto;
+    padding:18px 25px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    color:var(--gold);
+    font-size:25px;
+    font-weight:bold;
+    letter-spacing:2px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:22px;
+    font-size:14px;
+}
+
+nav a:hover{
+    color:var(--gold);
+}
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:120px 20px 70px;
+    background:
+      linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.9)),
+      radial-gradient(circle at center,#4d3b0b,#0d0d0d 60%);
+}
+
+.hero h1{
+    font-size:clamp(45px,8vw,85px);
+    color:var(--gold);
+    letter-spacing:5px;
+}
+
+.hero h2{
+    color:var(--cream);
+    margin:15px 0;
+    font-size:25px;
+}
+
+.hero p{
+    max-width:650px;
+    margin:0 auto 30px;
+    color:#ddd;
+    line-height:1.7;
+}
+
+.btn{
+    display:inline-block;
+    padding:14px 25px;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:bold;
+    margin:6px;
+    transition:.3s;
+}
+
+.gold-btn{
+    background:var(--gold);
+    color:#111;
+}
+
+.gold-btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 8px 25px rgba(212,175,55,.3);
+}
+
+.outline-btn{
+    border:1px solid var(--gold);
+    color:var(--gold);
+}
+
+section{
+    padding:80px 20px;
+}
+
+.container{
+    max-width:1150px;
+    margin:auto;
+}
+
+.title{
+    text-align:center;
+    margin-bottom:45px;
+}
+
+.title h2{
+    color:var(--gold);
+    font-size:36px;
+}
+
+.title p{
+    color:#bbb;
+    margin-top:10px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:22px;
+}
+
+.card{
+    background:var(--black2);
+    border:1px solid rgba(212,175,55,.25);
+    border-radius:18px;
+    overflow:hidden;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-6px);
+    border-color:var(--gold);
+}
+
+.card img{
+    width:100%;
+    height:210px;
+    object-fit:cover;
+    background:#292929;
+}
+
+.card-content{
+    padding:20px;
+}
+
+.card h3{
+    color:var(--gold);
+    margin-bottom:8px;
+}
+
+.card p{
+    color:#bbb;
+    line-height:1.5;
+}
+
+.services{
+    background:#111;
+}
+
+.service{
+    padding:28px;
+    text-align:center;
+}
+
+.service .icon{
+    font-size:45px;
+    margin-bottom:15px;
+}
+
+.service h3{
+    color:var(--gold);
+    margin-bottom:10px;
+}
+
+.upload-box{
+    max-width:700px;
+    margin:0 auto 35px;
+    padding:30px;
+    text-align:center;
+    border:2px dashed rgba(212,175,55,.6);
+    border-radius:18px;
+    background:#151515;
+}
+
+.upload-box input{
+    margin-top:20px;
+    color:white;
+}
+
+.gallery img{
+    height:240px;
+}
+
+.contact{
+    background:
+      linear-gradient(rgba(0,0,0,.88),rgba(0,0,0,.95)),
+      #111;
+    text-align:center;
+}
+
+.contact-box{
+    max-width:700px;
+    margin:auto;
+}
+
+.contact p{
+    margin:14px 0;
+    color:#ddd;
+}
+
+footer{
+    text-align:center;
+    padding:25px;
+    background:#080808;
+    color:#888;
+    border-top:1px solid #222;
+}
+
+.whatsapp{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    background:#25D366;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:29px;
+    text-decoration:none;
+    z-index:999;
+    box-shadow:0 5px 20px rgba(0,0,0,.4);
+}
+
+@media(max-width:700px){
+    nav{
+        padding:15px;
+    }
+
+    nav a{
+        display:none;
+    }
+
+    .logo{
+        font-size:20px;
+    }
+
+    section{
+        padding:60px 15px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<nav>
+    <div class="logo">CHOUHAN BAKERY</div>
+
+    <div>
+        <a href="#home">Home</a>
+        <a href="#products">Products</a>
+        <a href="#services">Services</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+    </div>
+</nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+<div>
+    <h1>CHOUHAN</h1>
+    <h2>BAKERY & EVENTS</h2>
+
+    <p>
+        Fresh Bakery • Beautiful Decorations • Event Photography
+        • Reel Shoot & Editing
+    </p>
+
+    <a class="btn gold-btn"
+       href="https://wa.me/918889170906?text=Hello%20Chouhan%20Bakery,%20mujhe%20order%20karna%20hai."
+       target="_blank">
+       💬 Order on WhatsApp
+    </a>
+
+    <a class="btn outline-btn" href="#products">
+       Explore Products
+    </a>
+</div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="products">
+<div class="container">
+
+<div class="title">
+    <h2>Our Products</h2>
+    <p>Fresh & delicious products for every occasion</p>
+</div>
+
+<div class="grid">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=900&q=80">
+<div class="card-content">
+<h3>🎂 Cakes</h3>
+<p>Birthday, Anniversary & Custom Cakes</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?auto=format&fit=crop&w=900&q=80">
+<div class="card-content">
+<h3>🧁 Pastry</h3>
+<p>Fresh & delicious pastries</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=900&q=80">
+<div class="card-content">
+<h3>🍞 Bread</h3>
+<p>Fresh bakery bread & baked items</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=900&q=80">
+<div class="card-content">
+<h3>🍪 Cookies</h3>
+<p>Crispy & tasty cookies</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1621939514649-280e2aa1f1f2?auto=format&fit=crop&w=900&q=80">
+<div class="card-content">
+<h3>🥨 Namkeen</h3>
+<p>Different varieties of fresh namkeen</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=900&q=80">
+<div class="card-content">
+<h3>🎈 Decoration</h3>
+<p>Birthday & Event Decoration Items</p>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+<div class="container">
+
+<div class="title">
+<h2>Our Services</h2>
+<p>Make your special day even more special</p>
+</div>
+
+<div class="grid">
+
+<div class="card service">
+<div class="icon">🎈</div>
+<h3>Event Decoration</h3>
+<p>Birthday, Anniversary & other event decoration.</p>
+</div>
+
+<div class="card service">
+<div class="icon">📸</div>
+<h3>Event Photography</h3>
+<p>Professional photography for your memorable moments.</p>
+</div>
+
+<div class="card service">
+<div class="icon">🎥</div>
+<h3>Reel Shoot</h3>
+<p>Creative Instagram & event reel shooting.</p>
+</div>
+
+<div class="card service">
+<div class="icon">✂️</div>
+<h3>Reel Editing</h3>
+<p>Professional editing for attractive social media reels.</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- IMAGE UPLOAD -->
+<section id="gallery">
+<div class="container">
+
+<div class="title">
+<h2>Our Gallery</h2>
+<p>Add your own bakery & event photos</p>
+</div>
+
+<div class="upload-box">
+
+<h3>📷 Upload Your Images</h3>
+
+<p style="color:#aaa;margin-top:10px;">
+Select photos from your mobile or computer.
+</p>
+
+<input
+type="file"
+id="imageInput"
+accept="image/*"
+multiple
+>
+
+</div>
+
+<div class="grid gallery" id="galleryContainer"></div>
+
+</div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+<div class="contact-box">
+
+<div class="title">
+<h2>Visit CHOUHAN Bakery</h2>
+</div>
+
+<p>📍 <strong>Address:</strong></p>
+<p>Sadar Bazar, Semliya,<br>
+District Ratlam, Madhya Pradesh</p>
+
+<p>📱 <strong>WhatsApp:</strong> 8889170906</p>
+
+<a class="btn gold-btn"
+href="https://wa.me/918889170906?text=Hello%20Chouhan%20Bakery,%20mujhe%20information%20chahiye."
+target="_blank">
+💬 Chat on WhatsApp
+</a>
+
+</div>
+</section>
+
+<footer>
+© 2026 CHOUHAN Bakery, Semliya – Ratlam
+<br>
+Bakery • Decoration • Photography • Reels
+</footer>
+
+<!-- WHATSAPP FLOATING BUTTON -->
+<a class="whatsapp"
+href="https://wa.me/918889170906"
+target="_blank"
+title="Chat on WhatsApp">
+💬
+</a>
+
+<script>
+
+const input = document.getElementById("imageInput");
+const gallery = document.getElementById("galleryContainer");
+
+input.addEventListener("change", function(){
+
+    const files = Array.from(this.files);
+
+    files.forEach(file => {
+
+        if(!file.type.startsWith("image/")) return;
+
+        const reader = new FileReader();
+
+        reader.onload = function(e){
+
+            const card = document.createElement("div");
+            card.className = "card";
+
+            card.innerHTML = `
+                <img src="${e.target.result}" alt="CHOUHAN Bakery">
+                <div class="card-content">
+                    <h3>CHOUHAN Bakery</h3>
+                    <p>Our Gallery</p>
+                </div>
+            `;
+
+            gallery.appendChild(card);
+        };
+
+        reader.readAsDataURL(file);
+    });
+
+});
+
+</script>
+
+</body>
+</html>
